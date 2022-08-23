@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/kblok/Documents/Projects/push_swap'
+echo "\033[1;34m🔨Creating object folder\033[0m"
+echo "\033[1;32m🔨Compiling: \033[1;35mpush_swap...\033[0m"
+make: Leaving directory `/Users/kblok/Documents/Projects/push_swap'
+ 

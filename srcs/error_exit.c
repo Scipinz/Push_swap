@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   error_exit.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/04/14 17:18:20 by kblok         #+#    #+#                 */
-/*   Updated: 2022/08/22 14:49:36 by kblok         ########   odam.nl         */
+/*   Created: 2022/08/22 17:08:48 by kblok         #+#    #+#                 */
+/*   Updated: 2022/08/23 15:56:16 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void	error_exit(char *str, int exit_code)
 {
-	t_node	*a;
-	t_node	*b;
-
-	a = create_list(argc, argv);
-	b = NULL;
-	fill_og_position(a);
-	bubblesort(&a, argc);
+	ft_putendl_fd(str, 2);
+	exit(exit_code);
 }
