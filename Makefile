@@ -6,7 +6,7 @@
 #    By: kblok <kblok@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/16 20:46:21 by kblok         #+#    #+#                  #
-#    Updated: 2022/08/23 17:14:34 by kblok         ########   odam.nl          #
+#    Updated: 2022/08/31 13:34:34 by kblok         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRCS		=	$(addprefix srcs/, \
 				error_exit.c \
 				create_list.c \
 				big_sort.c \
-				insert_values.c \
+				assign_values.c \
 				operations.c \
 				small_sort.c \
 				sort_check.c \
