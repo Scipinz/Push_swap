@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/31 13:41:06 by kblok         #+#    #+#                 */
-/*   Updated: 2022/08/31 15:25:59 by kblok         ########   odam.nl         */
+/*   Updated: 2022/09/12 12:48:21 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	comp_pos(t_node *first, t_node *second)
 	return (0);
 }
 
-static void	sort_og_position(t_node **list_a, int total_args)
+void	sort_og_position(t_node **list_a, int total_args)
 {
 	t_node	**temp;
 	int		arg_count;

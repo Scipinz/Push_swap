@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   sort_check.c                                       :+:    :+:            */
+/*   small_sort_utils.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/31 12:39:52 by kblok         #+#    #+#                 */
-/*   Updated: 2022/09/01 15:58:25 by kblok         ########   odam.nl         */
+/*   Created: 2022/09/01 15:50:42 by kblok         #+#    #+#                 */
+/*   Updated: 2022/09/12 12:13:53 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	compare_nodes(t_node *first, t_node *second)
+int	lowest_number(t_node **list_a)
 {
-	if (second == NULL)
-		return (-1);
-	if (first->og_value > second->og_value)
-		return (1);
-	return (0);
+	int	min;
+
+	min = 2147483647;
+	while (*list_a != NULL)
+	{
+		if (min > (*list_a)->sorted_position)
+			min = (*list_a)->sorted_position;
+		list_a = &(*list_a)->next;
+	}
+	return (min);
 }
 
-int	sort_check(t_node **stack_a)
+int	lowest_position(t_node **list_a, int lowest)
 {
-	t_node	*temp;
+	int	position;
 
-	temp = (*stack_a);
-	while (temp->next != NULL)
+	position = 1;
+	while ((*list_a)->sorted_position != lowest)
 	{
-		if (compare_nodes(temp, temp->next) == 1)
-			return (0);
-		temp = temp->next;
+		position++;
+		list_a = &(*list_a)->next;
 	}
-	return (1);
+	return (position);
 }

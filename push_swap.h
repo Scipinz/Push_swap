@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 13:59:42 by kblok         #+#    #+#                 */
-/*   Updated: 2022/08/31 13:46:43 by kblok         ########   odam.nl         */
+/*   Updated: 2022/09/12 15:07:45 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,18 @@ void	assign_position(t_node *stack_a);
 int		compare_nodes(t_node *first, t_node *second);
 int		sort_check(t_node **stack_a);
 void	swap_nodes(t_node **stack);
+void	big_sort(t_node **stack, t_node **stack_b);
+void	free_list(t_node *head);
+t_node	*list_last(t_node *list);
+int		list_size(t_node *stack_a);
+int		lowest_number(t_node **list_a);
+int		lowest_position(t_node **list_a, int lowest);
+void	stack_sort(int argc, t_node **list_a, t_node **list_b);
+void	list_swap(t_node **stack);
+void	rotate(t_node **stack);
+void	reverse_rot(t_node **stack);
+void	to_stack_a(t_node **stack, t_node **stack_b);
+void	to_stack_b(t_node **stack, t_node **stack_b);
+void	sort_og_position(t_node **list_a, int total_args);
 
 #endif

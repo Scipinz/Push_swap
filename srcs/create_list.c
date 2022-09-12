@@ -6,32 +6,33 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/23 15:49:07 by kblok         #+#    #+#                 */
-/*   Updated: 2022/08/23 17:33:43 by kblok         ########   odam.nl         */
+/*   Updated: 2022/09/12 15:44:27 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_node	*list_last(t_node *a)
+static t_node	*create_head(int argc, char **argv)
 {
-	if (a->next == NULL)
-		return (a);
-	while (a)
-	{
-		if (a->next == NULL)
-			return (a);
-		a = a->next;
-	}
-	return (NULL);
+	t_node	*head;
+
+	head = (t_node *)malloc(sizeof(t_node));
+	if (!head)
+		error_exit("Error", 1);
+	head->og_value = ft_atoi(argv[argc - 1]);
+	head->og_position = 0;
+	head->sorted_position = 0;
+	head->next = NULL;
+	return (head);
 }
 
 static t_node	*list_new(int og_value)
 {
 	t_node	*new;
 
-	new = malloc(sizeof(t_node));
+	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
-		error_exit ("Error\n", 1);
+		error_exit ("Error", 1);
 	new->og_value = og_value;
 	new->og_position = 0;
 	new->sorted_position = 0;
@@ -39,49 +40,46 @@ static t_node	*list_new(int og_value)
 	return (new);
 }
 
-static void	lstadd_back(t_node **a, int og_value)
+static void	push(t_node **head, int og_value)
 {
-	t_node	*new;
-	t_node	*temp;
+	t_node	*node;
 
-	new = list_new(og_value);
-	if (!(*a))
-	{
-		*a = new;
-		return ;
-	}
-	temp = list_last (*a);
-	temp->next = new;
+	node = list_new(og_value);
+	if (!node || !head)
+		error_exit("Error", 1);
+	node->next = *head;
+	*head = node;
 }
 
-static t_node	*create_head(char **argv)
+static t_node	*link_list(int argc, char **argv)
 {
-	t_node	*new;
+	t_node	*head;
+	int		arg_count;
 
-	new = malloc(sizeof(t_node));
-	if (!new)
-		error_exit("Error\n", 1);
-	new->og_value = ft_atoi(argv[1]);
-	new->og_position = 0;
-	new->sorted_position = 0;
-	new->next = NULL;
-	return (new);
+	head = create_head(argc, argv);
+	arg_count = argc - 2;
+	while (arg_count)
+	{
+		push(&head, ft_atoi(argv[arg_count]));
+		arg_count--;
+	}
+	return (head);
 }
 
 t_node	*create_list(int argc, char **argv)
 {
-	t_node	*a;
-	int		args;
-	int		argv_index;
+	t_node	*stack_a;
 
-	args = argc - 2;
-	argv_index = 2;
-	a = create_head(argv);
-	while (args)
+	stack_a = link_list(argc, argv);
+	if (sort_check(&stack_a) == 1)
 	{
-		lstadd_back(&a, ft_atoi(argv[argv_index]));
-		argv_index++;
-		args--;
+		free_list(stack_a);
+		exit(1);
 	}
-	return (a);
+	if (argc > 6)
+	{
+		assign_position(stack_a);
+		assign_index(&stack_a, argc);
+	}
+	return (stack_a);
 }

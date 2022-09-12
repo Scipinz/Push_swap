@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 17:01:31 by kblok         #+#    #+#                 */
-/*   Updated: 2022/08/23 16:14:04 by kblok         ########   odam.nl         */
+/*   Updated: 2022/09/12 15:16:52 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	dupe_check(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (str_check(argv, argv[i], i, argc))
+		if (str_check(argv, argv[i], i, argc) == 0)
 			return (0);
 		i++;
 	}

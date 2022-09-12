@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   list_utils.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/04/14 17:18:20 by kblok         #+#    #+#                 */
-/*   Updated: 2022/08/23 17:26:41 by kblok         ########   odam.nl         */
+/*   Created: 2022/09/01 14:45:18 by kblok         #+#    #+#                 */
+/*   Updated: 2022/09/12 12:47:25 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	fill_og_position(t_node *a)
+int	list_size(t_node *stack_a)
 {
-	int i;
+	int	nodes;
 
-	i = 0;
-	while (a)
+	nodes = 0;
+	while (stack_a)
 	{
-		a->og_position = i;
-		a = a->next;
-		i++;
+		nodes++;
+		stack_a = stack_a->next;
 	}
+	return (nodes);
 }
 
-static void	print_list(t_node *a)
+t_node	*list_last(t_node *list)
 {
-	int	idx;
-
-	idx = 0;
-	while (a)
+	if (!list)
+		return (NULL);
+	while (list)
 	{
-		printf("idx: %i\tog_value: %i\tog_pos: %i\n", idx, a->og_value, a->og_position);
-		a = a->next;
-		idx++;
+		if (list->next == NULL)
+			return (list);
+		list = list->next;
 	}
+	return (list);
 }
 
-int	main(int argc, char **argv)
+void	free_list(t_node *head)
 {
-	t_node	*a;
-	// t_node	*b;
+	t_node	*temp;
 
-	a = create_list(argc, argv);
-	fill_og_position(a);
-	print_list(a);
-	// b = NULL;
-	// bubblesort(&a, argc);
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
 }
