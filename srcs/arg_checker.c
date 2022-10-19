@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 17:01:31 by kblok         #+#    #+#                 */
-/*   Updated: 2022/09/12 15:16:52 by kblok         ########   odam.nl         */
+/*   Updated: 2022/10/19 17:22:49 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,18 @@ int	dupe_check(int argc, char **argv)
 
 void	check_int(char **argv, int argc)
 {
-	int		i;
-	int		j;
-	int		max_int;
+	int	i;
+	int	j;
 
 	i = 1;
-	max_int = 2147483647;
 	while (i - 1 < argc - 1)
 	{
 		j = 0;
-		if (ft_atoi(argv[i]) > max_int || ft_atoi(argv[i]) < -2147483648)
+		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
 			error_exit("Error", 1);
 		while (argv[i][j] != '\0')
 		{
-			if (argv[i][j] != '0' && argv[i][j] != '1' && argv[i][j] != '2' && \
-				argv[i][j] != '3' && argv[i][j] != '4' && argv[i][j] != '5' && \
-				argv[i][j] != '6' && argv[i][j] != '7' && argv[i][j] != '8' && \
-				argv[i][j] != '9' && argv[i][j] != '-')
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
 				error_exit("Error", 1);
 			if ((argv[i][j] == '-' && argv[i][j + 1] == '\0') || \
 				(argv[i][j] == '-' && argv[i][j + 1] == '-'))

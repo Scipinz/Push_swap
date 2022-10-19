@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/01 14:25:20 by kblok         #+#    #+#                 */
-/*   Updated: 2022/09/12 12:21:08 by kblok         ########   odam.nl         */
+/*   Updated: 2022/10/19 16:49:06 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	big_sort(t_node **stack, t_node **stack_b)
 		j = 0;
 		while (j < stack_size)
 		{
-			if ((((*stack)->og_value >> i) & i) == 1)
+			if ((((*stack)->og_value >> i) & 1) == 1)
 				rotate(stack);
 			else
 				to_stack_b(stack, stack_b);
