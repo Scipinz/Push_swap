@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 13:59:42 by kblok         #+#    #+#                 */
-/*   Updated: 2022/10/19 17:10:37 by kblok         ########   odam.nl         */
+/*   Updated: 2022/11/09 13:56:15 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <limits.h>
 
 typedef struct s_node
 {

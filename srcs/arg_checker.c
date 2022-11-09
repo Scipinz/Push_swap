@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 17:01:31 by kblok         #+#    #+#                 */
-/*   Updated: 2022/10/19 17:22:49 by kblok         ########   odam.nl         */
+/*   Updated: 2022/11/09 13:55:49 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void	check_int(char **argv, int argc)
 	{
 		j = 0;
 		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
+		{
+			printf("hi");
 			error_exit("Error", 1);
+		}
 		while (argv[i][j] != '\0')
 		{
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
