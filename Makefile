@@ -6,7 +6,7 @@
 #    By: kblok <kblok@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/11/16 20:46:21 by kblok         #+#    #+#                  #
-#    Updated: 2022/09/12 14:28:04 by kblok         ########   odam.nl          #
+#    Updated: 2022/11/09 16:02:26 by kblok         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS		= 	$(SRCS:srcs/%.c=objs/%.o)
 
 #==============================================================================: Compile variables
 CC			= 	gcc
-CFLAGS		= 	-Wall -Werror -Wextra -c
+CFLAGS		= 	-Wall -Werror -Wextra -c 
 RM			=	rm -rf
 AR			=	ar rcs
 MKDIR		=	mkdir -p

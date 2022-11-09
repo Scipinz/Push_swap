@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/01 16:04:41 by kblok         #+#    #+#                 */
-/*   Updated: 2022/09/12 12:41:22 by kblok         ########   odam.nl         */
+/*   Updated: 2022/11/09 15:57:06 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ void	stack_sort(int argc, t_node **list_a, t_node **list_b)
 {
 	if (argc == 3)
 		sort_two(list_a);
-	if (argc == 4)
+	else if (argc == 4)
 		sort_three(list_a);
-	if (argc == 5)
+	else if (argc == 5)
 		sort_four(list_a, list_b);
-	if (argc == 6)
+	else if (argc == 6)
 		sort_five(list_a, list_b);
 }

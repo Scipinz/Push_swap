@@ -6,7 +6,7 @@
 /*   By: kblok <kblok@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/01 15:50:42 by kblok         #+#    #+#                 */
-/*   Updated: 2022/09/12 12:13:53 by kblok         ########   odam.nl         */
+/*   Updated: 2022/11/09 15:56:26 by kblok         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	lowest_number(t_node **list_a)
 	min = 2147483647;
 	while (*list_a != NULL)
 	{
-		if (min > (*list_a)->sorted_position)
-			min = (*list_a)->sorted_position;
+		if (min > (*list_a)->og_value)
+			min = (*list_a)->og_value;
 		list_a = &(*list_a)->next;
 	}
 	return (min);
@@ -31,7 +31,7 @@ int	lowest_position(t_node **list_a, int lowest)
 	int	position;
 
 	position = 1;
-	while ((*list_a)->sorted_position != lowest)
+	while ((*list_a)->og_value != lowest)
 	{
 		position++;
 		list_a = &(*list_a)->next;
